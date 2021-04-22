@@ -2,6 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> 
+        <meta http-equiv="Pragma" content="no-cache" /> 
+        <meta http-equiv="Expires" content="0" />
         <meta name="viewport" content="width=100%, initial-scale=1">
         <title>与我的👦聊天中</title>
         <link href="../css/main.min.css" rel="stylesheet" type="text/css">
@@ -118,7 +121,7 @@
 
         var growAnimate = eval(Jscex.compile("async", function () {
 			var canvas2d = canvas[0].getContext("2d")
-			canvas2d.translate(-140, 300)
+			canvas2d.translate(-140, height / 2)
 			canvas2d.scale(0.6, 0.6);
             do {
     	        tree.grow();
