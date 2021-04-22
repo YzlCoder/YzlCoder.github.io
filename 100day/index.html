@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=100%, initial-scale=1">
-        <title>与江叔叔聊天中</title>
+        <title>与我的👦聊天中</title>
         <link href="css/main.min.css" rel="stylesheet" type="text/css">
         <link rel="Shortcut Icon" href="favicon.ico"/>
         <link rel="preload" href="img/love-the-girl.jpg" as="image">
@@ -21,11 +21,11 @@
     <body>
         <div id="mobile" :class="{ 'has-prompt': hasPrompt }">
             <div id="mobile-head">
-                <div id="mobile-head-title">与江叔叔聊天中</div>
+                <div id="mobile-head-title">与我的👦聊天中</div>
             </div>
             <div id="mobile-body">
-                <div id="mobile-body-bg"></div>
-                <div id="mobile-body-content">
+                <div id="mobile-body-bg"  v-if="!isTree"></div>
+                <div id="mobile-body-content"  v-if="!isTree">
                     <div id="mock-msg-row" class="msg-row">
                         <div id="mock-msg" class="msg" v-html="latestMsgContent"></div>
                     </div>
@@ -36,11 +36,13 @@
                         <div class="msg"
                             :class="'msg-bounce-in-' + (msg.author === 'author' ? 'left': 'right')"
                             :style="msg.width && msg.height && {width: msg.width - 26 + 'px', height: msg.height - 18 + 'px'}"
-                            v-html="msg.content"></div>
+                            v-html="msg.content"
+							v-on:click="drawTree(msg.href)"></div>
                     </div>
                 </div>
+				<iframe src="lovetree/index.html" width="100%" height="100%" v-if="isTree"></iframe>
             </div>
-            <div id="mobile-foot">
+            <div id="mobile-foot" v-if="!isTree">
                 <div id="prompt">
                     <div id="prompt-head">
                         <div class="say-something">我想说……</div>
@@ -67,21 +69,13 @@
                     v-on:click="togglePrompt(true)"
                     :class="{'clickable': !isTyping }">
                     <span v-if="!isTyping">我想说……</span>
-                    <span v-if="isTyping">江叔叔正在输入中</span>
+                    <span v-if="isTyping">我的👦正在输入中</span>
                 </div>
             </div>
             <div id="prompt-bg" v-on:click="togglePrompt(false)"></div>
         </div>
-
-        <div class="extra-link" id="meta-link">
-            <a class="letters" href="https://github.com/wongjohn/for-my-love" target="_blank">
-                源码
-            </a>
-        </div>
-
-        <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
-        <script src="//cdn.bootcss.com/vue/2.2.6/vue.min.js"></script>
-
+        <script src="lib/zepto.min.js"></script>
+        <script src="lib/vue.min.js"></script>
         <script src="js/index-min.js"></script>
     </body>
 </html>
