@@ -118,7 +118,7 @@
 
         var growAnimate = eval(Jscex.compile("async", function () {
 			var canvas2d = canvas[0].getContext("2d")
-			canvas2d.translate(-140, 400)
+			canvas2d.translate(-140, height / 2)
 			canvas2d.scale(0.6, 0.6);
             do {
     	        tree.grow();
