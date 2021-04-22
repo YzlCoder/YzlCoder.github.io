@@ -42,8 +42,8 @@ function() {
 			
 			drawTree : function(h){
 				var o = this;
-				
-				if(typeof(h) == "string")
+				console.log(typeof(h), h)
+				if(typeof(h) == "string" && h != "")
 				{
 					this.isTree = !0;
 				}

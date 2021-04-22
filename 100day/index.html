@@ -6,19 +6,10 @@
         <title>与我的👦聊天中</title>
         <link href="css/main.min.css" rel="stylesheet" type="text/css">
         <link rel="Shortcut Icon" href="favicon.ico"/>
-        <link rel="preload" href="img/love-the-girl.jpg" as="image">
-        <link rel="preload" href="img/news-wuhanfeiyan.jpg" as="image">
-        <link rel="preload" href="img/separate.jpeg" as="image">
-        <link rel="preload" href="img/in-sichuan.jpeg" as="image">
-        <link rel="preload" href="img/lucky-me.jpg" as="image">
-        <link rel="preload" href="img/breakfast.jpg" as="image">
-        <link rel="preload" href="img/exercise-together.jpg" as="image">
-        <link rel="preload" href="img/travel.jpg" as="image">
-        <link rel="preload" href="img/foot.jpg" as="image">
-        <link rel="preload" href="img/marry-me.png" as="image">
-        <link rel="preload" href="img/kiss-my-princess.png" as="image">
+		<link rel="preload" href="img/love-the-girl.jpg" as="image">
     </head>
     <body>
+		<audio autoplay="autopaly" preload="auto"><source src="./music/ai.mp3" type="audio/mp3"></audio>  
         <div id="mobile" :class="{ 'has-prompt': hasPrompt }">
             <div id="mobile-head">
                 <div id="mobile-head-title">与我的👦聊天中</div>
@@ -40,7 +31,7 @@
 							v-on:click="drawTree(msg.href)"></div>
                     </div>
                 </div>
-				<iframe src="lovetree/index.html" width="100%" height="100%" v-if="isTree"></iframe>
+				<iframe src="lovetree/index.html" width="100%" height="100%" style="border: medium none;" v-if="isTree"></iframe>
             </div>
             <div id="mobile-foot" v-if="!isTree">
                 <div id="prompt">
@@ -77,5 +68,11 @@
         <script src="lib/zepto.min.js"></script>
         <script src="lib/vue.min.js"></script>
         <script src="js/index-min.js"></script>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			console.log("??")
+			document.getElementById('audios').play()
+		})
+</script>
     </body>
 </html>

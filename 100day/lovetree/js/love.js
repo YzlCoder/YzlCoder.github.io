@@ -168,7 +168,7 @@
 
             ctx.moveTo(0, 0);
             ctx.scale(0.75, 0.75);
-            ctx.font = "12px 微软雅黑,Verdana"; // 字号肿么没有用? (ˉ(∞)ˉ)
+            ctx.font = "zh224"; // 字号肿么没有用? (ˉ(∞)ˉ)
             ctx.fillText("←点击爱心", 23, 10);
             ctx.restore();
         },
@@ -421,7 +421,7 @@
                     figure = this.seed.heart.figure;
                 var r = 240, x, y;
                 for (var i = 0; i < random(1,2); i++) {
-                    blooms.push(this.createBloom(width / 2 + width, height, r, figure, null, 1, null, 1, new Point(random(-100,600), 720), random(200,300)));
+                    blooms.push(this.createBloom(width, height / 2 + height, r, figure, null, 1, null, 1, new Point(random(-100,600), 1080), random(400,500)));
                 }
             }
         }
@@ -514,8 +514,7 @@
         },
         jump: function() {
             var s = this, height = s.tree.height;
-
-            if (s.point.x < -20 || s.point.y > height + 20) {
+            if (s.point.x < 50 || s.point.y > height - 50) {
                 s.tree.removeBloom(s);
             } else {
                 s.draw();
