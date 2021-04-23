@@ -120,7 +120,7 @@ function() {
 				}
 				
 				return this.messages.push(c),
-				h ? (this.markMsgSize(c), setTimeout(i), r(Math.min(250 * u, 2e3)).then(function() {
+				h ? (this.markMsgSize(c), setTimeout(i), r(Math.min(150 * u, 2e3)).then(function() {
 					return s.markMsgSize(c, a)
 				}).then(function() {
 					return r(150)
