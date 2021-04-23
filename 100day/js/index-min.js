@@ -55,7 +55,7 @@ function() {
 					return o.appendDialog(t)
 				});
 				else {
-					if (null != n && (o.lastDialog == null || o.lastDialog.id < n)) {
+					if (null != n && (o.lastDialog == null || o.lastDialog.id <= n)) {
 						this.isTyping = !0;
 						var i = this.getDialog(n);
 						if(null != i)
@@ -94,7 +94,18 @@ function() {
 				l = /<img[^>]+>/.test(a),
 				h = u > 2 || l,
 				q = /<a href=([^>]*)>/.test(t),
-				g = "";
+				g = "",
+				tt = /<time>/.test(a),
+				mm = /<me>/.test(a)
+				
+				if(tt)
+				{
+					n = "time";
+				}
+				if(mm)
+				{
+					n = "me";
+				}
 				if(q)
 				{
 					g = /<a href=([^>]*)>/.exec(t)[1];
@@ -109,7 +120,7 @@ function() {
 				}
 				
 				return this.messages.push(c),
-				h ? (this.markMsgSize(c), setTimeout(i), r(Math.min(100 * u, 2e3)).then(function() {
+				h ? (this.markMsgSize(c), setTimeout(i), r(Math.min(250 * u, 2e3)).then(function() {
 					return s.markMsgSize(c, a)
 				}).then(function() {
 					return r(150)
